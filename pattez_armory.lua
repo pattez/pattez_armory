@@ -1,4 +1,12 @@
 print("Loaded pattez_armory");
+
+-- Todo
+--
+
+if pattez_armory == nil then
+  pattez_armory = {}
+end
+
 local f = CreateFrame("Frame")
 f:SetScript("OnEvent", function (_, event, args)
   if event == "UPDATE_MOUSEOVER_UNIT" then
@@ -7,13 +15,15 @@ f:SetScript("OnEvent", function (_, event, args)
     local level = UnitLevel("mouseover")
     local realm = GetRealmName()
     local guildName, guildRankName, guildRankIndex = GetGuildInfo("mouseover")
+    local race = UnitRace("mouseover")
+    local gender = UnitSex("mouseover")
       NotifyInspect("mouseover")
       local items = {}
       for i = 0, 19 do
         local id = GetInventoryItemID("mouseover", i)
         items[#items+1] = {slotId = i, itemId = id}
       end
-      testaddon[#testaddon+1] = {realm = realm, name = name, guild = guildName, guildRank = guildRankName, level = level, items = items}
+      pattez_armory[#pattez_armory+1] = {realm = realm, name = name, guild = guildName, race = race, gender = gender, guildRank = guildRankName, level = level, items = items}
     end
   end
 end)
