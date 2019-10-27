@@ -1,4 +1,4 @@
-print("Loaded pattez_armory");
+print("Loaded pattez_armory")
 
 -- Todo
 --
@@ -10,20 +10,25 @@ end
 local f = CreateFrame("Frame")
 f:SetScript("OnEvent", function (_, event, args)
   if event == "UPDATE_MOUSEOVER_UNIT" then
-    if UnitExists("mouseover") and UnitIsPlayer("mouseover") then
+    local inRange = CheckInteractDistance("mouseover", 3)
+    if UnitExists("mouseover") and UnitIsPlayer("mouseover") and inRange then
     local name = UnitName("mouseover")
     local level = UnitLevel("mouseover")
+    local playerName = UnitName("player")
     local realm = GetRealmName()
     local guildName, guildRankName, guildRankIndex = GetGuildInfo("mouseover")
     local race = UnitRace("mouseover")
     local gender = UnitSex("mouseover")
+    local date = date("%Y-%m-%d %H:%M:%S")
       NotifyInspect("mouseover")
-      local items = {}
-      for i = 0, 19 do
+      local itemString = ""
+      for i = 1, 19 do
         local id = GetInventoryItemID("mouseover", i)
-        items[#items+1] = {slotId = i, itemId = id}
+        id = tostring(id)
+        itemString = itemString .. "," .. id
       end
-      pattez_armory[#pattez_armory+1] = {realm = realm, name = name, guild = guildName, race = race, gender = gender, guildRank = guildRankName, level = level, items = items}
+      tinsert(pattez_armory, format('%s,%s,%s,%s,%s,%s,%s,%s,%s%s', playerName or "nil", date or "nil", realm or "nil", name or "nil", guildName or "nil", guildRankName or "nil", level or "nil", race or "nil", gender or "nil",  itemString or 'nil'))
+      ClearInspectPlayer()
     end
   end
 end)
@@ -31,5 +36,4 @@ end)
 f:RegisterEvent("INSPECT_READY")
 f:RegisterEvent("PLAYER_TARGET_CHANGED")
 f:RegisterEvent("UPDATE_MOUSEOVER_UNIT")
-f:RegisterEvent("PLAYER_LOGIN")
-f:RegisterEvent("ADDON_LOADED");
+f:RegisterEvent("ADDON_LOADED")
