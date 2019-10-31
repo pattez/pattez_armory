@@ -18,7 +18,7 @@ f:SetScript("OnEvent", function (_, event, args)
     local localizedClass, englishClass, classIndex = UnitClass("mouseover")
     local realm = GetRealmName()
     local guildName, guildRankName, guildRankIndex = GetGuildInfo("mouseover")
-    local race = UnitRace("mouseover")
+    local race, raceFile, raceIndex = UnitRace("mouseover")
     local gender = UnitSex("mouseover")
     local date = date("%Y-%m-%d %H:%M:%S")
       NotifyInspect("mouseover")
@@ -28,7 +28,7 @@ f:SetScript("OnEvent", function (_, event, args)
         id = tostring(id)
         itemString = itemString .. "," .. id
       end
-      tinsert(pattez_armory, format('%s,%s,%s,%s,%s,%s,%s,%s,%s,%s%s', playerName or "nil", date or "nil", realm or "nil", name or "nil", guildName or "nil", guildRankName or "nil", level or "nil", englishClass or 'nil', race or "nil", gender or "nil",  itemString or 'nil'))
+      tinsert(pattez_armory, format('%s,%s,%s,%s,%s,%s,%s,%s,%s,%s%s', playerName or "nil", date or "nil", realm or "nil", name or "nil", guildName or "nil", guildRankName or "nil", level or "nil", classIndex or 'nil', raceIndex or "nil", gender or "nil",  itemString or 'nil'))
       ClearInspectPlayer()
     end
   end
