@@ -28,7 +28,30 @@ f:SetScript("OnEvent", function (_, event, args)
         id = tostring(id)
         itemString = itemString .. "," .. id
       end
-      tinsert(pattez_armory, format('%s,%s,%s,%s,%s,%s,%s,%s,%s,%s%s', playerName or "nil", date or "nil", realm or "nil", name or "nil", guildName or "nil", guildRankName or "nil", level or "nil", classIndex or 'nil', raceIndex or "nil", gender or "nil",  itemString or 'nil'))
+
+      local index = 0;
+      local count = 0
+      local playerIndex = 0
+      for i = 1, #pattez_armory do
+        if pattez_armory[i] and string.find(pattez_armory[i], name) then
+          local _, occurence = string.gsub(pattez_armory[i], name, "")
+          index = i
+            if occurence == 2 then
+              count = occurence
+              playerIndex = i
+            end
+        end
+      end
+      local formatted = format('%s,%s,%s,%s,%s,%s,%s,%s,%s,%s%s', playerName or "nil", date or "nil", realm or "nil", name or "nil", guildName or "nil", guildRankName or "nil", level or "nil", classIndex or 'nil', raceIndex or "nil", gender or "nil",  itemString or 'nil')
+
+      if index > 0 and playerIndex == 0 then
+        pattez_armory[index] = formatted
+      elseif playerIndex > 0 then
+        pattez_armory[playerIndex] = formatted
+      else
+        tinsert(pattez_armory, formatted)
+      end
+
       ClearInspectPlayer()
     end
   end
