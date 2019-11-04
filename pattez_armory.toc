@@ -3,6 +3,5 @@
 ## Notes: An addon that saves character information on mouseover
 ## Author: Pattez
 ## Version: 1
-## SavedVariablesPerCharacter: pattez_armory
 ## SavedVariables: pattez_armory
 pattez_armory.lua
