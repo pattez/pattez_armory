@@ -1,4 +1,4 @@
-* pattez_armory World of Warcraft Classic Addon
+World of Warcraft Classic Addon: pattez_armory
 * Download as zip and extract pattez_armory folder to your World of Warcraft Classic Addons folder
 
 ## About
