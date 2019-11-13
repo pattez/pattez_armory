@@ -1,5 +1,5 @@
-pattez_armory World of Warcraft Classic Addon
-Download as zip and extract pattez_armory folder to your World of Warcraft Classic Addons folder
+* pattez_armory World of Warcraft Classic Addon
+* Download as zip and extract pattez_armory folder to your World of Warcraft Classic Addons folder
 
 ## About
 * Saves data to savedVariables on target
