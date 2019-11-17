@@ -3,7 +3,9 @@ World of Warcraft Classic Addon: pattez_armory
 
 ## About
 * Saves data to savedVariables on target
+* type /pa or /paexport to export - This will open a small editbox window with a bunch of text already highlighted, press ctrl + c and then enter.
+Upload by pasting in the copied text at https://classicarmory.org/#/upload
 * Updates the player data whenever you inspect someone you've inspected already.
 Which means that when you upload, you will only upload what that character was wearing at the time you inspected that player.
 * Sometime it may take a few seconds for the server to throttle the character information.
-* This addon saves data to be later used for upload with the exe client https://github.com/pattez/pattez-armory-exe which is later displayed on https://classicarmory.org , github: https://github.com/pattez/classicarmory.org
+* Currently inspecting manually may take sometimes (1-5 seconds)
