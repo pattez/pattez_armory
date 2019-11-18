@@ -158,7 +158,7 @@ function PATTEZ_ARMORY_ONUPDATE ()
         end
         local formatted = format('%s,%s,%s,%s,%s,%s,%s,%s,%s,%s%s%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s', playerName or "nil", date or "nil", realm or "nil", name or "nil", guildName or "nil",
          guildRankName or "nil", level or "nil", classIndex or "nil", raceIndex or "nil", gender or "nil",  itemString or "nil", enchantString or "nil", todayHK or "nil",
-          yesterdayHK or "nil", yesterdayHonor or "nil", lifetimeHK or "nil", lifetimeRank or "nil", honorProgress or "nil", rankNumber or "nil", thisweekHK or "nil", thisweekHonor or "nil", lastWeekHK or "nil",
+          yesterdayHK or "nil", yesterdayHonor or "nil", lifetimeHK or "nil", honorProgress or "nil", rankNumber or "nil", thisweekHK or "nil", thisweekHonor or "nil", lastWeekHK or "nil",
           lastweekHonor or "nil", lastweekStanding or "nil", lifetimeDK or "nil", lifetimeHighestRank or "nil")
       if #pattez_armory >= 500 then
         if scanned == 50 then
