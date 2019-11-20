@@ -19,6 +19,7 @@ function export (editBox)
     DEFAULT_CHAT_FRAME:AddMessage("pattez_armory: Exporting...")
     local export_string = ""
     export_string = table.concat(pattez_armory, "z27e8")
+    export_string = "version" .. PATTEZ_ARMORY_VERSION .. "," .. export_string
     editBox:SetText(export_string)
     editBox:Show()
     editBox:HighlightText()
@@ -120,9 +121,10 @@ function PATTEZ_ARMORY_ONUPDATE ()
       local itemString = ""
       local enchantString = ""
       local honorProgress = GetInspectPVPRankProgress()
-      local rankNumber = UnitPVPRank("target");
 
       local todayHK, todayDK, yesterdayHK, yesterdayHonor, thisweekHK, thisweekHonor, lastweekHK, lastweekHonor, lastweekStanding, lifetimeHK, lifetimeDK, lifetimeHighestRank = GetInspectHonorData()
+      local rankNumber = UnitPVPRank("target")
+
       local enchantSlots = {1, 3, 5, 7, 8, 9, 10, 15, 16, 17, 18}
         for i = 1, 19 do
           local id = GetInventoryItemID("target", i)
@@ -156,9 +158,9 @@ function PATTEZ_ARMORY_ONUPDATE ()
               end
           end
         end
-        local formatted = format('%s,%s,%s,%s,%s,%s,%s,%s,%s,%s%s%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s', playerName or "nil", date or "nil", realm or "nil", name or "nil", guildName or "nil",
+        local formatted = format('%s,%s,%s,%s,%s,%s,%s,%s,%s,%s%s%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s', playerName or "nil", date or "nil", realm or "nil", name or "nil", guildName or "nil",
          guildRankName or "nil", level or "nil", classIndex or "nil", raceIndex or "nil", gender or "nil",  itemString or "nil", enchantString or "nil", todayHK or "nil",
-          yesterdayHK or "nil", yesterdayHonor or "nil", lifetimeHK or "nil", honorProgress or "nil", rankNumber or "nil", thisweekHK or "nil", thisweekHonor or "nil", lastWeekHK or "nil",
+          yesterdayHK or "nil", yesterdayHonor or "nil", lifetimeHK or "nil", honorProgress or "nil", rankNumber or "nil", thisweekHK or "nil", thisweekHonor or "nil", lastweekHK or "nil",
           lastweekHonor or "nil", lastweekStanding or "nil", lifetimeDK or "nil", lifetimeHighestRank or "nil")
       if #pattez_armory >= 500 then
         if scanned == 50 then
