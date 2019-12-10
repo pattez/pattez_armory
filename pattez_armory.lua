@@ -168,13 +168,13 @@ function PATTEZ_ARMORY_ONUPDATE ()
           scanned = 0
         end
       elseif index > 0 and playerIndex == 0 then
-        DEFAULT_CHAT_FRAME:AddMessage("pattez_armory: " .. "Sucessfully updated: " .. name)
+        DEFAULT_CHAT_FRAME:AddMessage("pattez_armory: " .. "Successfully updated: " .. name)
         pattez_armory[index] = formatted
       elseif playerIndex > 0 then
-        DEFAULT_CHAT_FRAME:AddMessage("pattez_armory: " .. "Sucessfully updated: " .. name)
+        DEFAULT_CHAT_FRAME:AddMessage("pattez_armory: " .. "Successfully updated: " .. name)
           pattez_armory[playerIndex] = formatted
       else
-          DEFAULT_CHAT_FRAME:AddMessage("pattez_armory: " .. "Sucessfully inspected: " .. name)
+          DEFAULT_CHAT_FRAME:AddMessage("pattez_armory: " .. "Successfully inspected: " .. name)
           tinsert(pattez_armory, formatted)
         end
       inspectDone()
