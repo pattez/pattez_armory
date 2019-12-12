@@ -2,6 +2,6 @@
 ## Title: Pattez armory
 ## Notes: An addon that saves character information on target
 ## Author: Pattez
-## Version: 1.2
+## Version: 1.3
 ## SavedVariables: pattez_armory
 pattez_armory.xml

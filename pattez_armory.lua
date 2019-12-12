@@ -109,7 +109,7 @@ function PATTEZ_ARMORY_ONUPDATE ()
     end
 
     if inspectStage == 2 then
-      local name = UnitName("target")
+      local name, server = UnitName("target")
       local level = UnitLevel("target")
       local playerName = UnitName("player")
       local localizedClass, englishClass, classIndex = UnitClass("target")
@@ -132,7 +132,7 @@ function PATTEZ_ARMORY_ONUPDATE ()
           for j = 1, #enchantSlots do
             if i == enchantSlots[j] then
               local itemLink = GetInventoryItemLink("target", i)
-              local itemLinkString = tostring(itemLink)
+              local itemLinkString = tostring(itemrLink)
               local _, itemId, enchantId = strsplit(":", itemLinkString)
               if enchantId == "" or enchantId == nil then
                 enchantString = enchantString .. "," .. "nil"
@@ -158,7 +158,7 @@ function PATTEZ_ARMORY_ONUPDATE ()
               end
           end
         end
-        local formatted = format('%s,%s,%s,%s,%s,%s,%s,%s,%s,%s%s%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s', playerName or "nil", date or "nil", realm or "nil", name or "nil", guildName or "nil",
+        local formatted = format('%s,%s,%s,%s,%s,%s,%s,%s,%s,%s%s%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s', playerName or "nil", date or "nil", server or realm, name or "nil", guildName or "nil",
          guildRankName or "nil", level or "nil", classIndex or "nil", raceIndex or "nil", gender or "nil",  itemString or "nil", enchantString or "nil", todayHK or "nil",
           yesterdayHK or "nil", yesterdayHonor or "nil", lifetimeHK or "nil", honorProgress or "nil", rankNumber or "nil", thisweekHK or "nil", thisweekHonor or "nil", lastweekHK or "nil",
           lastweekHonor or "nil", lastweekStanding or "nil", lifetimeDK or "nil", lifetimeHighestRank or "nil")
