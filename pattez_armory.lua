@@ -132,7 +132,7 @@ function PATTEZ_ARMORY_ONUPDATE ()
           for j = 1, #enchantSlots do
             if i == enchantSlots[j] then
               local itemLink = GetInventoryItemLink("target", i)
-              local itemLinkString = tostring(itemrLink)
+              local itemLinkString = tostring(itemLink)
               local _, itemId, enchantId = strsplit(":", itemLinkString)
               if enchantId == "" or enchantId == nil then
                 enchantString = enchantString .. "," .. "nil"
